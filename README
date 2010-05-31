@@ -1,0 +1,33 @@
+This is a simple bash script that I set up to automatically create a project structure for a non-Rails project using Cucumber and RSpec. 
+It's nothing fancy, but I wanted to automate the process for myself. Note you have to have the proper gems installed -- it doesn't check for them, so if you don't have them, it'll error out. 
+
+Simply put it where you keep your bash scripts -- mine is in ~/bin -- and run it with the name of the project you want to create as an argument: 
+
+e.g. If you want to create a Tic Tac Toe project and you downloaded this dir into your ~/bin, run this:
+
+$ ~/bin/rcuc/rcuc tic_tac_toe
+
+That's sort of verbose, though, so you may as well make an alias to it.
+
+That will generate the following directory structure with the proper wiring up of files: 
+
+tic_tac_toe
+  features
+  --step_definitions
+  --support
+  ----env.rb
+  lib
+  --tic_tac_toe.rb
+  spec
+  --spec_helper.rb
+  --tic_tac_toe_spec.rb
+
+It also generates a dummy spec and a dummy feature that you can run, then remove. 
+
+After creating it, run the dummy spec and feature just like you would normally: 
+
+$ cd tic_tac_toe
+$ cucumber features
+$ spec specs/
+
+Assuming you have the proper gems installed, you should see the output for passing tests.  At this point, you're set up. 

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+DIR=$1
+DIRSPEC=$1_spec.rb
+DIRFEATURE=$1.feature
+
+echo "Setting up a Cucumber / RSpec project called: $DIR "
+
+mkdir $DIR
+
+mkdir "$DIR/features"
+touch "$DIR/features/$DIRFEATURE"
+mkdir "$DIR/features/step_definitions"
+mkdir "$DIR/features/support"
+touch "$DIR/features/support/env.rb"
+
+mkdir "$DIR/spec"
+touch "$DIR/spec/spec_helper.rb"
+touch "$DIR/spec/$DIRSPEC"
+
+mkdir "$DIR/lib"
+touch "$DIR/lib/$DIR.rb"
+
+echo -e "$:<<File.join(File.dirname(__FILE__),'/../../lib')\nrequire 'spec/expectations'\nrequire '$DIR'" >> $DIR/features/support/env.rb 
+echo -e "$:<<File.join(File.dirname(__FILE__), '/../lib')\nrequire 'spec'\nrequire '$DIR'" >> $DIR/spec/spec_helper.rb
+echo -e "require 'spec_helper'\n\ndescribe '$DIR' do\n\tit 'should do something' do\n\t\tputs 'write test here'\n\t\ttrue\n\tend\nend" >> $DIR/spec/$DIRSPEC
+
+echo -e "Feature: Saying Hello\n\n\tScenario: App says hello\n\tGiven something\n\tWhen I do something\n\tThen I should see something" >> $DIR/features/$DIRFEATURE
+echo "The project is set up. Run 'spec specs/' from within $DIR. Then run 'cucumber features' from within $DIR. Then erase the tests, write your own, and have fun. "
