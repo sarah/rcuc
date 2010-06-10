@@ -28,6 +28,6 @@ After creating it, run the dummy spec and feature just like you would normally:
 
 $ cd tic_tac_toe
 $ cucumber features
-$ spec specs/
+$ spec spec
 
 Assuming you have the proper gems installed, you should see the output for passing tests.  At this point, you're set up. 

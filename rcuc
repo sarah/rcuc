@@ -26,4 +26,4 @@ echo -e "$:<<File.join(File.dirname(__FILE__), '/../lib')\nrequire 'spec'\nrequi
 echo -e "require 'spec_helper'\n\ndescribe '$DIR' do\n\tit 'should do something' do\n\t\tputs 'write test here'\n\t\ttrue\n\tend\nend" >> $DIR/spec/$DIRSPEC
 
 echo -e "Feature: Saying Hello\n\n\tScenario: App says hello\n\tGiven something\n\tWhen I do something\n\tThen I should see something" >> $DIR/features/$DIRFEATURE
-echo "The project is set up. Run 'spec specs/' from within $DIR. Then run 'cucumber features' from within $DIR. Then erase the tests, write your own, and have fun. "
+echo "The project is set up. Run 'spec spec' from within $DIR. Then run 'cucumber features' from within $DIR. Then erase the tests, write your own, and have fun. "
