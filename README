@@ -31,3 +31,5 @@ $ cucumber features
 $ spec spec
 
 Assuming you have the proper gems installed, you should see the output for passing tests.  At this point, you're set up. 
+
+****
